@@ -1,0 +1,135 @@
+0 S --> func S
+1 S
+2 func --> type id ( params ) func_body
+3 func --> VOID id ( params ) func_body
+4 params
+5 params --> type id params\'
+6 params\'
+7 params\' --> , type id params\'
+8 func_body --> ;
+9 func_body --> block
+10 block --> { def_stmts stmts }
+11 def_stmts --> def_stmt def_stmts
+12 def_stmts
+13 def_stmt --> type id M13_2 array M13_4 vars ;
+13 M13_2
+13 M13_4
+14 array --> M14_1
+14 M14_1
+15 array --> [ int ] M15_4 array M15_6
+15 M15_4
+15 M15_6
+16 vars
+17 vars --> , id M17_3 array M17_5 vars
+17 M17_3
+17 M17_5
+18 stmts
+19 stmts --> stmt stmts
+20 stmt --> E ;
+21 stmt --> ;
+22 stmt --> block
+23 stmt --> RETURN e ;
+24 stmt --> CONTINUE ;
+25 stmt --> BREAK ;
+26 stmt --> IF ( E ) M26_5 stmt M26_7 else M26_9
+26 M26_5
+26 M26_7
+26 M26_9
+27 stmt --> SWITCH ( E ) { cases }
+28 stmt --> DO stmt WHILE ( E ) ;
+30 else --> ELSE stmt
+29 else
+31 cases --> case cases
+32 cases
+33 case --> CASE const : stmts
+34 case --> DEFAULT : stmts
+35 e
+36 e --> E
+37 stmt --> FOR ( e ; e ; e ) stmt
+38 stmt --> WHILE ( M38_3 E ) M26_5 stmt M38_7
+38 M38_3
+38 M38_7
+39 factor --> + factor
+40 E --> value M52_2 comp M52_4
+41 comp
+42 comp --> < value M42_4
+42 M42_4
+43 comp --> <= value M43_4
+43 M43_4
+44 comp --> > value M44_4
+44 M44_4
+45 comp --> >= value M45_4
+45 M45_4
+46 comp --> == value M46_4
+46 M46_4
+47 comp --> != value M47_4
+47 M47_4
+48 value --> item M52_2 items M52_4
+49 items
+50 items --> + item M50_3 items M52_4
+50 M50_3
+51 items --> - item M51_3 items M52_4
+51 M51_3
+52 item --> factor M52_2 factors M52_4
+52 M52_2
+52 M52_4
+53 factors
+54 factors --> * factor M54_3 factors M52_4
+54 M54_3
+55 factors --> / factor M55_3 factors M52_4
+55 M55_3
+56 factors --> % factor M56_3 factors M52_4
+56 M56_3
+57 factor --> ! factor M57_3
+58 M57_3
+58 factor --> ++ factor M58_3
+58 M58_3
+59 factor --> -- factor M59_3
+59 M59_3
+60 factor --> ( E ) M60_4
+60 M60_4
+61 factor --> id M61_2 call M61_4
+61 M61_2
+61 M61_4
+62 factor --> const M62_2
+62 M62_2
+63 call --> M63_1 array M63_3
+63 M63_1
+63 M63_3
+64 call --> ( Es )
+65 Es --> E Es\'
+66 Es\' --> , E Es\'
+67 Es\'
+68 type --> CHAR M68_2
+68 M68_2
+69 type --> INT M69_2
+69 M69_2
+70 type --> LONG M70_2
+70 M70_2
+71 type --> SHORT M71_2
+71 M71_2
+72 type --> FLOAT M72_2
+72 M72_2
+73 type --> DOUBLE M73_2
+73 M73_2
+74 const --> int M74_2
+75 const --> float M74_2
+76 const --> double M74_2
+77 const --> char M74_2
+74 M74_2
+78 comp --> = value M78_3
+78 M78_3
+79 comp --> += value M79_3
+79 M79_3
+80 comp --> -= value M80_3
+80 M80_3
+81 comp --> *= value M81_3
+81 M81_3
+82 comp --> /= value M82_3
+82 M82_3
+83 comp --> %= value M83_3
+83 M83_3
+84 factor --> - factor M84_3
+84 M84_3
+85 const --> string
+86 params --> VOID
